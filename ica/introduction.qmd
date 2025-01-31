@@ -10,8 +10,6 @@ editor: visual
 -   Play around in the RStudio \*\*console\*\* to gain familiarity with the basic structure of R code.
 :::
 
-{{< include activity-instructions.qmd >}}
-
 ### Exercise 1: RStudio {.unnumbered}
 
 Launch RStudio.
@@ -37,8 +35,6 @@ This error is \*important\* to learning how R code does and doesn't work.
 \`\`\`{r} #\| eval: false
 
 4 + 2 4/2 4\^2 4\*2 4(2) \`\`\`
-
-{{< include activity-check-with-partner.qmd >}}
 
 ### Exercise 3: Functions {.unnumbered}
 
@@ -87,8 +83,6 @@ Do that for each function you used above.
 -   \`nchar()\` = ???
 -   \`rep()\` = ???
 -   \`seq()\` = ???
-
-{{< include activity-check-with-partner.qmd >}}
 
 ### Exercise 5: Practice {.unnumbered}
 
@@ -140,8 +134,6 @@ It will happen when you either haven't yet defined the object you're trying to u
 \`\`\`{r} #\| eval: false
 
 degrees_tomorrow \`\`\`
-
-{{< include activity-check-with-partner.qmd >}}
 
 ### Exercise 7: Practice {.unnumbered}
 
