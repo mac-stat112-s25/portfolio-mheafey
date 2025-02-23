@@ -3,3 +3,27 @@ title: "Bivariate Viz"
 ---
 
 Use this file to generate a professional looking **bivariate** visualization.  The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(mosaic)
+library(fivethirtyeight)
+```
+
+```{r}
+data(bechdel)
+new_bechdel <- bechdel |>
+  mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
+  mutate(half_decades = cut(year, breaks = seq(1969, 2014, by = 5)))
+```
+
+```{r, fig.cap = "Created by Madeleine Heafey"}
+#| message: false
+#| warning: false
+ggplot(new_bechdel, aes(x = budget_2013, y = domgross_2013)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  geom_smooth(se = FALSE) +
+  labs(title = "Movie Budget vs. Domestic Box Office Gross", x = "Movie Budget", y = "Domestic Box Office")
+```

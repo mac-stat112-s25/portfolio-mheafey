@@ -3,3 +3,24 @@ title: "Univariate Viz"
 ---
 
 Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(mosaic)
+library(fivethirtyeight)
+```
+
+```{r}
+data(bechdel)
+new_bechdel <- bechdel |>
+  mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
+  mutate(half_decades = cut(year, breaks = seq(1969, 2014, by = 5)))
+```
+
+```{r, fig.cap = "Created by Madeleine Heafey"}
+ggplot(new_bechdel, aes(x = clean_test)) +
+  geom_bar(color = "white", fill = "blue") +
+  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")
+```

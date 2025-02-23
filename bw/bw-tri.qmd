@@ -3,3 +3,37 @@ title: "Trivariate Viz"
 ---
 
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(mosaic)
+library(fivethirtyeight)
+
+```
+
+```{r}
+
+data("Birthdays")
+daily_births <- Birthdays |> 
+  group_by(date) |> 
+  summarize(births = sum(births)) |> 
+  mutate(year = year(date), 
+         month = month(date, label = TRUE),
+         day_of_month = mday(date),
+         day_of_week = wday(date, label = TRUE))
+
+```
+
+```{r, fig.cap = "Created by Madeleine Heafey"}
+#| message: false
+#| warning: false
+
+ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +
+  geom_point(size = 0.75) +
+  geom_smooth(se = FALSE) +
+  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date")
+
+```

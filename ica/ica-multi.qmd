@@ -1,6 +1,7 @@
-### The story {-}
+### The story {.unnumbered}
 
-Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state's education system. The `education` dataset contains various education variables for each state:
+Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state's education system.
+The `education` dataset contains various education variables for each state:
 
 ```{r}
 # Import and check out data
@@ -12,12 +13,12 @@ A codebook is provided by Danny Kaplan who also made these data accessible:
 
 ![](https://mac-stat.github.io/images/112/SATcodebook.png)
 
+### Exercise 1: SAT scores {.unnumbered}
 
-### Exercise 1: SAT scores {-}
+#### Part a {.unnumbered}
 
-#### Part a {-}
-
-Construct a plot of how the average `sat` scores vary from state to state. (Just use 1 variable -- `sat` not `State`!)
+Construct a plot of how the average `sat` scores vary from state to state.
+(Just use 1 variable -- `sat` not `State`!)
 
 ```{r}
 
@@ -29,19 +30,21 @@ ggplot(education, aes(x = sat)) +
   
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
-Summarize your observations from the plot. Comment on the basics: range, typical outcomes, shape. (Any theories about what might explain this non-normal shape?)
+Summarize your observations from the plot.
+Comment on the basics: range, typical outcomes, shape.
+(Any theories about what might explain this non-normal shape?)
 
-The data has two peaks, and skews slightly right. The minimum seems to be around 700 and the maximum around 1100. The data is mostly clumped together.
+The data has two peaks, and skews slightly right.
+The minimum seems to be around 700 and the maximum around 1100.
+The data is mostly clumped together.
 
-
-
-### Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries {-}
+### Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries {.unnumbered}
 
 The first question we'd like to answer is: Can the variability in `sat` scores from state to state be partially explained by how much a state spends on education, specifically its per pupil spending (`expend`) and typical teacher `salary`?
 
-#### Part a {-}
+#### Part a {.unnumbered}
 
 ```{r}
 # Construct a plot of sat vs expend
@@ -63,16 +66,18 @@ ggplot(education, aes(x = salary, y = sat)) +
 
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
-What are the relationship trends between SAT scores and spending? Is there anything that surprises you?
+What are the relationship trends between SAT scores and spending?
+Is there anything that surprises you?
 
 There seems to be a slightly negative correlation between SAT scores and spending, which is surprising because I expected to see a stronger positive trend.
 
+### Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries {.unnumbered}
 
-### Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries {-}
-
-Construct *one* visualization of the relationship of `sat` with `salary` *and* `expend`. HINT: Start with just 2 variables and tweak that code to add the third variable. Try out a few things!
+Construct *one* visualization of the relationship of `sat` with `salary` *and* `expend`.
+HINT: Start with just 2 variables and tweak that code to add the third variable.
+Try out a few things!
 
 ```{r}
 
@@ -82,13 +87,14 @@ ggplot(education, aes(y = sat, x = salary, color = expend)) +
 
 ```
 
+### Exercise 4: Another way to Incorporate Scale {.unnumbered}
 
+It can be tough to distinguish color scales and size scales for quantitative variables.
+Another option is to *discretize* a quantitative variable, or basically cut it up into *categories*.
 
-### Exercise 4: Another way to Incorporate Scale {-}
-
-It can be tough to distinguish color scales and size scales for quantitative variables. Another option is to *discretize* a quantitative variable, or basically cut it up into *categories*.
-
-Construct the plot below. Check out the code and think about what's happening here. What happens if you change "2" to "3"?
+Construct the plot below.
+Check out the code and think about what's happening here.
+What happens if you change "2" to "3"?
 
 ```{r eval = FALSE}
 ggplot(education, aes(y = sat, x = salary, color = cut(expend, 2))) + 
@@ -102,13 +108,16 @@ ggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) +
 
 Describe the trivariate relationship between `sat`, `salary`, and `expend`.
 
-There seems to be a strong negative relationship between spending, expenditure, and sat until a little after 40, at which point the relationship becomes weaker. There seems to also be a slight positive relationship between spending and sat after a certain threshold around 45.
+There seems to be a strong negative relationship between spending, expenditure, and sat until a little after 40, at which point the relationship becomes weaker.
+There seems to also be a slight positive relationship between spending and sat after a certain threshold around 45.
 
-### Exercise 5: Finally an Explanation {-}
+### Exercise 5: Finally an Explanation {.unnumbered}
 
-It's strange that SAT scores *seem* to decrease with spending. But we're leaving out an important variable from our analysis: the fraction of a state's students that actually take the SAT. The `fracCat` variable indicates this fraction: `low` (under 15% take the SAT), `medium` (15-45% take the SAT), and `high` (at least 45% take the SAT).
+It's strange that SAT scores *seem* to decrease with spending.
+But we're leaving out an important variable from our analysis: the fraction of a state's students that actually take the SAT.
+The `fracCat` variable indicates this fraction: `low` (under 15% take the SAT), `medium` (15-45% take the SAT), and `high` (at least 45% take the SAT).
 
-#### Part a {-}
+#### Part a {.unnumbered}
 
 Build a univariate viz of `fracCat` to better understand how many states fall into each category.
 
@@ -119,9 +128,10 @@ ggplot(education, aes(x = fracCat)) +
 
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
-Build 2 bivariate visualizations that demonstrate the relationship between `sat` and `fracCat`. What story does your graphic tell and why does this make contextual sense?
+Build 2 bivariate visualizations that demonstrate the relationship between `sat` and `fracCat`.
+What story does your graphic tell and why does this make contextual sense?
 
 ```{r}
 
@@ -130,11 +140,14 @@ ggplot(education, aes(x = fracCat, y = sat)) +
   geom_point()
 
 ```
+
 It seems that the states where fewer students take the SAT have higher typical scores, whereas the states where more students take the SAT tend to get lower scores.
 
-#### Part c {-}
+#### Part c {.unnumbered}
 
-Make a trivariate visualization that demonstrates the relationship of `sat` with `expend` AND `fracCat`. Highlight the differences in `fracCat` groups through color AND unique trend lines. What story does your graphic tell?\
+Make a trivariate visualization that demonstrates the relationship of `sat` with `expend` AND `fracCat`.
+Highlight the differences in `fracCat` groups through color AND unique trend lines.
+What story does your graphic tell?\
 Does it still seem that SAT scores decrease as spending increases?
 
 ```{r}
@@ -144,13 +157,17 @@ ggplot(education, aes(x = expend, y = sat, color = fracCat)) +
   geom_smooth(method = "lm", se = FALSE)
 
 ```
+
 It seems now that SAT score increases when spending increases, most notably for the states where 15-45% of students take the test.
 
-#### Part d {-}
+#### Part d {.unnumbered}
 
-Putting all of this together, explain this example of **Simpson’s Paradox**. That is, why did it appear that SAT scores decrease as spending increases even though the *opposite* is true?
+Putting all of this together, explain this example of **Simpson’s Paradox**.
+That is, why did it appear that SAT scores decrease as spending increases even though the *opposite* is true?
 
-States with lower spending tend to have fewer students taking the test, and those that do tend to have higher scores. On the other hand, states with higher spending have more students take the test, leading to the typical score being lower. Either way, scores do increase with spending.
+States with lower spending tend to have fewer students taking the test, and those that do tend to have higher scores.
+On the other hand, states with higher spending have more students take the test, leading to the typical score being lower.
+Either way, scores do increase with spending.
 
 ## Solutions
 
@@ -158,9 +175,9 @@ States with lower spending tend to have fewer students taking the test, and thos
 
 <summary>Click for Solutions</summary>
 
-### Exercise 1: SAT scores {-}
+### Exercise 1: SAT scores {.unnumbered}
 
-#### Part a {-}
+#### Part a {.unnumbered}
 
 ```{r}
 # A histogram would work too!
@@ -168,14 +185,14 @@ ggplot(education, aes(x = sat)) +
   geom_density()
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
-average SAT scores range from roughly 800 to 1100. They appear bi-modal.
+average SAT scores range from roughly 800 to 1100.
+They appear bi-modal.
 
+### Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries {.unnumbered}
 
-### Exercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries {-}
-
-#### Part a {-}
+#### Part a {.unnumbered}
 
 ```{r}
 # Construct a plot of sat vs expend
@@ -193,12 +210,11 @@ ggplot(education, aes(y = sat, x = salary)) +
   geom_smooth(method = "lm")
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
 The higher the student expenditures and teacher salaries, the worse the SAT performance.
 
-
-### Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries {-}
+### Exercise 3: SAT Scores vs Per Pupil Spending *and* Teacher Salaries {.unnumbered}
 
 ```{r}
 ggplot(education, aes(y = sat, x = salary, color = expend)) + 
@@ -206,8 +222,7 @@ ggplot(education, aes(y = sat, x = salary, color = expend)) +
   geom_smooth(method = "lm")
 ```
 
-
-### Exercise 4: Another Way to Incorporate Scale {-}
+### Exercise 4: Another Way to Incorporate Scale {.unnumbered}
 
 ```{r}
 ggplot(education, aes(y = sat, x = salary, color = cut(expend, 2))) + 
@@ -220,26 +235,26 @@ ggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) +
 
 States with lower salaries and expenditures tend to have higher SAT scores.
 
+### Exercise 5: Finally an Explanation {.unnumbered}
 
-### Exercise 5: Finally an Explanation {-}
-
-#### Part a {-}
+#### Part a {.unnumbered}
 
 ```{r}
 ggplot(education, aes(x = fracCat)) + 
   geom_bar()
 ```
 
-#### Part b {-}
+#### Part b {.unnumbered}
 
-The more students in a state that take the SAT, the lower the average scores tend to be. This is probably related to self-selection.
+The more students in a state that take the SAT, the lower the average scores tend to be.
+This is probably related to self-selection.
 
 ```{r}
 ggplot(education, aes(x = sat, fill = fracCat)) + 
   geom_density(alpha = 0.5)
 ```
 
-#### Part c {-}
+#### Part c {.unnumbered}
 
 When we control for the fraction of students that take the SAT, SAT scores *increase* with expenditure.
 
@@ -249,8 +264,9 @@ ggplot(education, aes(y = sat, x = expend, color = fracCat)) +
   geom_smooth(method = "lm")
 ```
 
-#### Part d {-}
+#### Part d {.unnumbered}
 
-Student participation tends to be lower among states with lower expenditures (which are likely also the states with higher ed institutions that haven't historically required the SAT). Those same states tend to have higher SAT scores because of the self-selection of who participates.
+Student participation tends to be lower among states with lower expenditures (which are likely also the states with higher ed institutions that haven't historically required the SAT).
+Those same states tend to have higher SAT scores because of the self-selection of who participates.
 
 </details>

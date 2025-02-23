@@ -3,3 +3,26 @@ title: "Quadvariate Viz"
 ---
 
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(mosaic)
+library(fivethirtyeight)
+library(ggplot2)
+```
+
+```{r}
+data(bechdel)
+new_bechdel <- bechdel |>
+  mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
+  mutate(half_decades = cut(year, breaks = seq(1969, 2014, by = 5)))
+```
+
+```{r, fig.cap = "Created by Madeleine Heafey"}
+ggplot(new_bechdel, aes(x = half_decades, fill = clean_test)) +
+  geom_bar() +
+  labs(title = "Number of Films Passing the Bechdel Test by Half Decade and Degree of Passing", fill = "Degree of Passing", y = "Number of Movies", x = "Half Decades") +
+  facet_wrap(~binary)
+```
