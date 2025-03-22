@@ -1,0 +1,126 @@
+---
+title: "Exam 1"
+execute: 
+  warning: false
+  code: true
+---
+
+Grand research question: What does the consumption of each food category in each country look like?
+
+```{r}
+
+#9 tidyverse packages loaded
+library(tidytuesdayR)
+library(tidyverse)
+
+#loads the tidytuesday data we need and stores it under "fc"
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+
+```
+
+```{r}
+
+#checking out the data
+dim(fc)
+str(fc)
+head(fc)
+tail(fc)
+
+```
+```{r}
+
+#the units of observation are food categories (by country), there are 11 food categories and 130 countries listed
+head(fc, 22) 
+tail(fc, 22)
+
+```
+
+Understanding the variables individually
+
+```{r}
+
+#density plot of consumption
+ggplot(fc, aes(x = consumption)) +
+  geom_density()
+
+#density plot of co2 emission
+ggplot(fc, aes(x = co2_emmission)) +
+  geom_density()
+
+```
+
+Understanding consumption
+
+```{r}
+
+#box plot of consumption by food category
+fc |>
+  mutate(food_category = recode(food_category, `Milk - inc. cheese` = "Milk", `Nuts inc. Peanut Butter` = "Nuts", `Wheat and Wheat Products` = "Wheat")) |>
+  ggplot(aes(x = food_category, y = consumption)) +
+  geom_boxplot()
+
+#largely unhelpful point plot of overall food consumption by country
+fc |>
+  group_by(country) |>
+  summarize(total_consumption = sum(consumption)) |>
+  ggplot(aes(x = country, y = total_consumption)) +
+  geom_point()
+
+```
+
+Answering grand RQ:
+
+```{r fig.height=5, fig.width=10, fig.cap = "Dot plot of food consumption per capita by category and country", fig.alt = "Dot plot of food category consumption by country where consumption ranges from 0 to well over 400 kg/person. Most categories range from 0 to roughly 75, with rice, wheat products, and milk going much higher, capping at slightly under 200, slightly above 200, and over 400 respectively. Individual countries are for the most part difficult to make out, with the exception of the Maldives, which consumes twice as much fish as the second-ranked country, and Finland, which consumes roughly 75 more kg of Milk than the second-ranked country."}
+
+#Creating dataset with countries that have highest consumption for each category and renaming some stuff to be shorter. I imagine there is a better way to do this.
+fc_highest <- fc |>
+  group_by(food_category) |>
+  arrange(desc(consumption)) |>
+  summarize(highest = max(consumption)) |>
+  left_join(fc, join_by(highest == consumption)) |>
+  select(`food_category.x`, highest, country)  |>
+  mutate(country, country = recode(country, `Hong Kong SAR. China` = "Hong Kong", `Taiwan. ROC` = "Taiwan", `United Arab Emirates` = "UAE")) |>
+  mutate(`food_category.x` = recode(`food_category.x`, `Milk - inc. cheese` = "Milk", `Nuts inc. Peanut Butter` = "Nuts", `Wheat and Wheat Products` = "Wheat Products"))
+
+#renaming fc to be shorter as well
+fc <- fc |>
+  mutate(food_category = recode(food_category, `Milk - inc. cheese` = "Milk", `Nuts inc. Peanut Butter` = "Nuts", `Wheat and Wheat Products` = "Wheat Products"))
+
+#Creating dot plot of consumption of each category of food where each dot is a different country. I labeled only the top country in each category because otherwise it would get too cluttered. The legend had to be removed entirely :/
+ggplot(data = fc, aes(x = food_category, y = consumption, color = country)) +
+  geom_point() +
+  theme(legend.position = "none") +
+ geom_text(data = fc_highest, aes(x = `food_category.x`, y = highest, label = country), nudge_y = 17) +
+  labs(title = "Food Consumption per Capita (kg) By Country and Category", x = "Food category", y = "Consumption (kg)")
+
+```
+Looking at this dataset I wonder if there's any way I could get a better look at the countries so they aren't just all stacked on each other like they are currently. I also wish there was a version of the dataset with some more detailed categories so I could get a look at variations within them.
+
+Alternative graph that is by region for simplicity and clarity:
+
+```{r fig.height=5, fig.width=11, fig.cap = "Dot plot of food consumption by category and region", fig.alt = "Dot plot of food consumption by category and region where Milk and Wheat products show by far the greatest spread. Europe consumes twice as much milk as the second-ranked region, the Americas. They also consume roughly 1200 more wheat products than the second-ranked region, Asia."}
+
+#importing country mapping data from Andrada on Kaggle, the data was originally taken from lukes on GitHub
+country_data <- read_csv("../data/continents2.csv")
+
+#cutting down to only the columns I want
+country_data <- country_data |>
+  select(name, `alpha-2`, region)
+
+#joining country data to fc and resolving naming differences
+fc_regional <- fc |>
+  mutate(country, country = recode(country, USA = "United States", Swaziland = "Eswatini", `Hong Kong SAR. China` = "Hong Kong", `Bosnia and Herzegovina` = "Bosnia And Herzegovina", `Taiwan. ROC` = "Taiwan")) |>
+  left_join(country_data, join_by(country == name)) |>
+  mutate(food_category = recode(food_category, `Milk - inc. cheese` = "Milk", `Nuts inc. Peanut Butter` = "Nuts", `Wheat and Wheat Products` = "Wheat Products")) |>
+  group_by(region, food_category) 
+
+fc_regional |>
+  summarize(region_consumption = sum(consumption)) |>
+  ggplot(aes(x = food_category, y = region_consumption, color = region)) +
+  scale_color_brewer(palette = "Set1") +
+  geom_point(size = 1) +
+  labs(title = "Total Regional Food Consumption (kg) by Category", x = "Category", y = "Consumption (kg)", color = "Region")
+
+```
+Similar to what I said with the first plot, I wish there was a version of the dataset with some more detailed categories so I could get a look at variations within them. I also think that it would be nice to make some plots with sub-regions, since just going off continents is probably erasing a lot of variation here.
