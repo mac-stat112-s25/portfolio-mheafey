@@ -1,3 +1,8 @@
+---
+title: "Spatial Viz"
+format: html
+---
+
 ### Exercise 1: A leaflet with markers / points {.unnumbered}
 
 Earlier this semester, I asked for the latitude and longitude of one of your favorite places.

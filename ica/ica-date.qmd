@@ -1,3 +1,8 @@
+---
+title: "Dates"
+format: html
+---
+
 ## Exercises Part 1: Same Verbs, New Tricks
 
 ### Exercise 1: More Filtering {.unnumbered}

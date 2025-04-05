@@ -1,3 +1,8 @@
+---
+title: "Multivariate Viz"
+format: html
+---
+
 ### The story {.unnumbered}
 
 Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state's education system.

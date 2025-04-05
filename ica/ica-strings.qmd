@@ -1,3 +1,8 @@
+---
+title: "Strings"
+format: html
+---
+
 ### Exercise 1: Time slots {.unnumbered}
 
 The `courses` data includes *actual* data scraped from Mac's [class schedule](https://macadmsys.macalester.edu/macssb/customPage/page/classSchedule). (Thanks to Prof Leslie Myint for the scraping code!!)

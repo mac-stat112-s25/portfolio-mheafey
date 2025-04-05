@@ -1,3 +1,8 @@
+---
+title: "Factors"
+format: html
+---
+
 The exercises revisit our `grades` data:
 
 ```{r}
