@@ -1,0 +1,197 @@
+---
+title: "Exam 2"
+format: html
+---
+
+```{r}
+
+#loading packages
+library(tidytuesdayR)
+library(tidyverse)
+library(rnaturalearth)
+library(sf)
+
+#loading data
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+
+#inspect data
+str(fc)
+head(fc, 22)
+
+```
+
+```{r}
+
+#inspect country variable
+fc |>
+  distinct(country) |>
+  summarize(country_count = n())
+
+#inspect food_category variable
+fc |>
+  distinct(food_category)
+
+#cleaning up some value names in food_category
+fcc <- fc |>
+  mutate(food_category = fct_recode(food_category, 
+                                    "Lamb" = "Lamb & Goat", 
+                                    "Dairy" = "Milk - inc. cheese", 
+                                    "Wheat" = "Wheat and Wheat Products", 
+                                    "Nuts" = "Nuts inc. Peanut Butter"))
+
+#re-inspect food_category variable
+fcc |>
+  distinct(food_category)
+
+#looks good!
+
+```
+
+```{r}
+
+#finding the 5 countries that produce the most food
+fcc |>
+  group_by(country) |>
+  summarize(total_consumption = sum(consumption)) |>
+  arrange(desc(total_consumption)) |>
+  head(5)
+
+#this could be visualized most appropriately with a bar plot
+
+```
+```{r}
+
+#finding the top 5 consuming countries for each food category
+fcc |>
+  group_by(food_category) |>
+  slice_max(consumption, n = 5)
+
+#this could be best visualized with a box plot
+
+```
+
+```{r}
+
+#viz attempt 1
+ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  left_join(fcc |> select(-co2_emmission),
+            join_by(name == country)) |>
+  ggplot() +
+  geom_sf(aes(fill = consumption)) +
+  facet_wrap(~food_category) +
+  theme(legend.position = "bottom")
+
+map_data <- ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  left_join(fcc |> select(-co2_emmission),
+            join_by(name == country))
+
+#problems this viz suffers from:
+# missing countries
+# unclear color scale
+# hard to read
+# too small, too much going on
+# no real logic to its layout
+
+#list of countries with missing consumption data
+map_data |>
+  filter(is.na(consumption)) |>
+  st_drop_geometry() |>
+  select(name) |>
+  arrange(name)
+
+```
+```{r}
+
+#viz attempt 2
+ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  mutate(name = ifelse(name == "United States of America", "USA", name)) |>
+  mutate(name = ifelse(name == "Bosnia and Herz.", "Bosnia andd Herzegovina", name)) |>
+  mutate(name = ifelse(name == "Czechia", "Czech Republic", name)) |>
+  mutate(name = ifelse(name == "Taiwan", "Taiwan. ROC", name)) |>
+  left_join(fcc |> select(-co2_emmission),
+            join_by(name == country)) |>
+  pivot_wider(names_from = food_category,
+              values_from = consumption) |>
+  select(-"NA") |>
+  pivot_longer(cols = c(-name, -geometry),
+               names_to = "food_category",
+               values_to = "consumption") |>
+  ggplot() +
+  geom_sf(aes(fill = consumption)) +
+  facet_wrap(~food_category) +
+  theme(legend.position = "bottom")
+
+#problems this viz suffers from:
+# still has an unclear color scale
+# hard to read
+# small
+# order still isn't logical
+
+#min, max, range of consumption for each food. The values are slightly different from those in the handout but it's just rounding
+fcc |>
+  group_by(food_category) |>
+  summarize(min = min(consumption),
+            max = max(consumption),
+            range = max - min) |>
+  arrange(desc(range))
+
+```
+```{r}
+
+#viz attempt 3
+ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  mutate(name = ifelse(name == "United States of America", "USA", name)) |>
+  mutate(name = ifelse(name == "Bosnia and Herz.", "Bosnia and Herzegovina", name)) |>
+  mutate(name = ifelse(name == "Czechia", "Czech Republic", name)) |>
+  mutate(name = ifelse(name == "Taiwan", "Taiwan. ROC", name)) |>
+  left_join(
+    fcc |>
+      select(-co2_emmission) |>
+      group_by(food_category) |>
+      mutate(consumption = (consumption - mean(consumption))/sd(consumption)),
+    join_by(name == country)) |>
+  pivot_wider(names_from = food_category, values_from = consumption) |>
+  select(-"NA") |>
+  pivot_longer(cols = c(-name, -geometry),
+               names_to = "food_category",
+               values_to = "consumption") |>
+  ggplot() +
+  geom_sf(aes(fill = consumption)) +
+  facet_wrap(~food_category) +
+  theme(legend.position = "bottom")
+
+#this viz could be enhanced by making the colors clearer and maybe the viz as a whole bigger
+
+```
+```{r, fig.height=22, fig.width=11}
+
+#final version of graph scaled up with some slightly clearer colors
+ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  mutate(name = ifelse(name == "United States of America", "USA", name)) |>
+  mutate(name = ifelse(name == "Bosnia and Herz.", "Bosnia and Herzegovina", name)) |>
+  mutate(name = ifelse(name == "Czechia", "Czech Republic", name)) |>
+  mutate(name = ifelse(name == "Taiwan", "Taiwan. ROC", name)) |>
+  left_join(
+    fcc |>
+      select(-co2_emmission) |>
+      group_by(food_category) |>
+      mutate(consumption = (consumption - mean(consumption))/sd(consumption)),
+    join_by(name == country)) |>
+  pivot_wider(names_from = food_category, values_from = consumption) |>
+  select(-"NA") |>
+  pivot_longer(cols = c(-name, -geometry),
+               names_to = "food_category",
+               values_to = "consumption") |>
+  ggplot() +
+  geom_sf(aes(fill = consumption)) +
+  scale_fill_continuous(low="#fffcad", high="#ff0000", na.value="transparent") +
+  facet_wrap(~food_category, ncol = 2) +
+  theme(legend.position = "bottom")
+
+```
