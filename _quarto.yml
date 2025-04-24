@@ -36,7 +36,7 @@ book:
       
     - part: "Summary Sheets"
       chapters:
-      - bw/Summary.qmd
+      - bw/Visualization_Wrangling.qmd
 
     - part: "In-class Activities"
       chapters: 
