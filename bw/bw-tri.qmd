@@ -35,6 +35,6 @@ daily_births <- Birthdays |>
 ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +
   geom_point(size = 0.75) +
   geom_smooth(se = FALSE) +
-  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date")
+  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date", caption = "Created 2025, data from fivethirtyeight.com")
 
 ```

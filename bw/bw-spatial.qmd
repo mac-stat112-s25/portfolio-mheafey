@@ -68,7 +68,7 @@ ggplot(starbucks_with_2018_pop_est, aes(map_id = state_name, fill = starbucks_pe
     inherit.aes = FALSE
   ) +
   scale_fill_gradient(low = "white", high = "#006241", name = "Starbucks per 1000") +
-  labs(title = "Plot of Starbucks per 1000 people across contiguous US") +
+  labs(title = "Plot of Starbucks per 1000 people across contiguous US", caption = "Created 2025, data from Danny Kaplan") +
   theme_map()
 
 ```

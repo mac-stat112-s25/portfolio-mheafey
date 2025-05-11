@@ -192,6 +192,7 @@ ne_countries(returnclass = "sf") |>
   geom_sf(aes(fill = consumption)) +
   scale_fill_continuous(low="#fffcad", high="#ff0000", na.value="transparent") +
   facet_wrap(~food_category, ncol = 2) +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  labs(title = "Consumption of Food Categories by Country", caption = "Created 2025, data from Tidy Tuesday")
 
 ```

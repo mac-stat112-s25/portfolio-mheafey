@@ -12,7 +12,9 @@ editor: visual
 
 ### Exercise 1: RStudio {.unnumbered}
 
-Launch RStudio. Notice that there are four panes, each serving a different purpose. Today, we'll work within the \*\*console\*\* and will \*not\* save any work.
+Launch RStudio.
+Notice that there are four panes, each serving a different purpose.
+Today, we'll work within the \*\*console\*\* and will \*not\* save any work.
 
 \`\`\`{r fig-main, fig.cap="RStudio Interface"} #\| echo: false
 
@@ -24,7 +26,11 @@ If you have problem running RStudio on your machine, you can temporarily use \[M
 
 ### Exercise 2: Console {.unnumbered}
 
-We can use RStudio to do simple calculations using R. Type the following lines in the \*\*console\*\*, one by one, hitting Return/Enter after each. Take note of what you get. In some cases you might get an error! This error is \*important\* to learning how R code does and doesn't work.
+We can use RStudio to do simple calculations using R.
+Type the following lines in the \*\*console\*\*, one by one, hitting Return/Enter after each.
+Take note of what you get.
+In some cases you might get an error!
+This error is \*important\* to learning how R code does and doesn't work.
 
 \`\`\`{r} #\| eval: false
 
@@ -32,27 +38,35 @@ We can use RStudio to do simple calculations using R. Type the following lines i
 
 ### Exercise 3: Functions {.unnumbered}
 
-Having a calculator is nice, but we'll typically use \*\*built-in functions\*\* to perform common (repetitive) and specific tasks. These functions have \*names\* and require information, called \*arguments\*, in order to run. Functions are called as follows:
+Having a calculator is nice, but we'll typically use \*\*built-in functions\*\* to perform common (repetitive) and specific tasks.
+These functions have \*names\* and require information, called \*arguments\*, in order to run.
+Functions are called as follows:
 
 \`function(argument)\`
 
-Try out the following functions in the \*\*console\*\*. Note each function's \*name\*, \*argument\* (information it needs to run), and \*output\* (i.e. what the function does and produce):
+Try out the following functions in the \*\*console\*\*.
+Note each function's \*name\*, \*argument\* (information it needs to run), and \*output\* (i.e. what the function does and produce):
 
 \`\`\`{r} #\| eval: false
 
 sqrt(9) sqrt(25) nchar("snow") nchar("macalester") sqrt(nchar("snow")) \`\`\`
 
-Some functions require \*more than 1 argument\*, separated by commas. To keep these straight, we often specify the arguments by name as follows:
+Some functions require \*more than 1 argument\*, separated by commas.
+To keep these straight, we often specify the arguments by name as follows:
 
 \`function(argument1 = \_\_\_, argument2 = \_\_\_)\`
 
-Try out the following functions in the \*\*console\*\*. Note each function's \*name\*, \*argument\* (information it needs to run), and \*output\* (i.e. what the function does and produce):
+Try out the following functions in the \*\*console\*\*.
+Note each function's \*name\*, \*argument\* (information it needs to run), and \*output\* (i.e. what the function does and produce):
 
 \`\`\`{r} #\| eval: false
 
 rep(x = 2, times = 5) rep(times = 5, x = 2) rep(2, 5) rep(5, 2) seq(from = 2, to = 10, by = 2) seq(2, 10, 2) seq(from = 2, to = 10, length = 3) seq(2, 10, 3) \`\`\`
 
-Note that R is \*\*case-sensitive\*\*. Try the following code which uses \`Seq()\` instead of \`seq()\` (capital case \`S\` instead of lower case \`s\`). Read the \*\*error message\*\* and make sure to understand it--you will experience this type of error message a lot! It will happen any time you misspell a function among other reasons we'll experience later.
+Note that R is \*\*case-sensitive\*\*.
+Try the following code which uses \`Seq()\` instead of \`seq()\` (capital case \`S\` instead of lower case \`s\`).
+Read the \*\*error message\*\* and make sure to understand it--you will experience this type of error message a lot!
+It will happen any time you misspell a function among other reasons we'll experience later.
 
 \`\`\`{r} #\| eval: false
 
@@ -60,7 +74,10 @@ Seq(2, 10, 3) \`\`\`
 
 ### Exercise 4: Grammer {.unnumbered}
 
-We'll learn lots and lots of functions this semester. Nobody has every function memorized. That said, it does help to connect function names with their purpose. Do that for each function you used above.
+We'll learn lots and lots of functions this semester.
+Nobody has every function memorized.
+That said, it does help to connect function names with their purpose.
+Do that for each function you used above.
 
 -   \`sqrt()\` = square root
 -   \`nchar()\` = ???
@@ -79,7 +96,8 @@ Use the functions you learned above to do the following:
 
 ### Exercise 6: Variables {.unnumbered}
 
-For reasons that will become clear in the future, we'll often want to store some R output for later. We can so so using the assignment operator as follows:
+For reasons that will become clear in the future, we'll often want to store some R output for later.
+We can so so using the assignment operator as follows:
 
 \`name \<- output\`
 
@@ -89,7 +107,9 @@ In the above assignment statement:
 -   \`output\` is the result we wish to store
 -   \`\<-\` is the \*\*assignment operator\*\*--you can think of this as an arrow pointing the \`output\` into the \`name\`.
 
-Try out each line one at a time. Some lines will not show any output. Why?
+Try out each line one at a time.
+Some lines will not show any output.
+Why?
 
 \`\`\`{r} #\| eval: false
 
@@ -99,13 +119,17 @@ degrees_c \<- -13 degrees_c \`\`\`
 To run a single line of code, place the cursor at any position of that line then hit \<kbd\>ctrl/cmd+enter/return\</kbd\>
 :::
 
-Let's now use what we stored. Again, do this one by one.
+Let's now use what we stored.
+Again, do this one by one.
 
 \`\`\`{r} #\| eval: false
 
 degrees_c \* (9/5) + 32 degrees_f \<- degrees_c \* (9/5) + 32 degrees_f \`\`\`
 
-Finally, try to print \`degrees_tomorrow\`. Take time to read the \*\*error message\*\*. You will experience this type of error message a \*lot\*! It will happen when you either haven't yet defined the object you're trying to use or you've misspelled its name among other reasons we'll experience later.
+Finally, try to print \`degrees_tomorrow\`.
+Take time to read the \*\*error message\*\*.
+You will experience this type of error message a \*lot\*!
+It will happen when you either haven't yet defined the object you're trying to use or you've misspelled its name among other reasons we'll experience later.
 
 \`\`\`{r} #\| eval: false
 
@@ -119,7 +143,10 @@ degrees_tomorrow \`\`\`
 
 ### Exercise 8: Code Styling {.unnumbered}
 
-It's important to recognize that \*\*code is a form of communication\*\*, both to yourself and others. Code structure and details are important to readability and clarity just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays. All of the code below \*works\*, but has bad structure. Discuss with your partner what is unfortunate about each line.
+It's important to recognize that \*\*code is a form of communication\*\*, both to yourself and others.
+Code structure and details are important to readability and clarity just as grammar, punctuation, spelling, paragraphs, and line spacing are important in written essays.
+All of the code below \*works\*, but has bad structure.
+Discuss with your partner what is unfortunate about each line.
 
 \`\`\`{r} #\| eval: false
 
@@ -159,7 +186,8 @@ degreesCelsius \<- -13
 
 degrees_celsius \<- -13 \`\`\`
 
-It's also \*impossible\*, not just ill-advised to start names with numbers or symbols, or to use certain symbols in our names. Try the followings:
+It's also \*impossible\*, not just ill-advised to start names with numbers or symbols, or to use certain symbols in our names.
+Try the followings:
 
 \`\`\`{r} #\| eval: false
 
@@ -167,14 +195,20 @@ It's also \*impossible\*, not just ill-advised to start names with numbers or sy
 
 ### Exercise 9: Mistakes & Help {.unnumbered}
 
-Mistakes are common when learning any new language. You'll get better and better at interpreting error messages, finding help, and fixing errors. These are all important skills in computer programming in general.
+Mistakes are common when learning any new language.
+You'll get better and better at interpreting error messages, finding help, and fixing errors.
+These are all important skills in computer programming in general.
 
 ::: {.callout-tip title="Console Shortcut"}
-With your cursor at the next prompt in the console (\`\>\`), press the up arrow \*multiple times\*. What does this do?! This shortcut will be very handy when you make mistakes and want to \*modify\* your code without having to start over.
+With your cursor at the next prompt in the console (\`\>\`), press the up arrow \*multiple times\*.
+What does this do?!
+This shortcut will be very handy when you make mistakes and want to \*modify\* your code without having to start over.
 :::
 
 ::: {.callout-tip title="Help Files"}
-You'll often forget how functions are used. Luckily, there's typically built-in documentation for built-in functions that can be invoked using the \`?\` operator.
+You'll often forget how functions are used.
+Luckily, there's typically built-in documentation for built-in functions that can be invoked using the \`?\`
+operator.
 :::
 
 Let's practice:
@@ -193,7 +227,8 @@ Finally, let's leave the console.
 
 ### Optional Excersise: Watch Explaination {.unnumbered}
 
-If you've finished the above exercises, you can watch \[Dr. Alicia Johnson talks through the concepts learned today (YouTube)\](http://www.youtube.com/embed/JfIo2Ua_oqQ/).
+If you've finished the above exercises, you can watch \[Dr.
+Alicia Johnson talks through the concepts learned today (YouTube)\](http://www.youtube.com/embed/JfIo2Ua_oqQ/).
 
 ## Solutions
 

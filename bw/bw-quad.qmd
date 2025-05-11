@@ -24,6 +24,7 @@ new_bechdel <- bechdel |>
 #| code-fold: true
 ggplot(new_bechdel, aes(x = half_decades, fill = clean_test)) +
   geom_bar() +
-  labs(title = "Number of Films Passing the Bechdel Test by Half Decade and Degree of Passing", fill = "Degree of Passing", y = "Number of Movies", x = "Half Decades") +
-  facet_wrap(~binary)
+  labs(title = "Number of Films Passing Bechdel Test by Half Decade and Degree of Passing", fill = "Degree of Passing", y = "Number of Movies", x = "Half Decades", caption = "Created 2025, data from fivethirtyeight.com") +
+  facet_wrap(~binary) +
+  theme(panel.spacing = unit(3, "lines"), axis.text.x=element_text(color=c("black","transparent","transparent","transparent","transparent","transparent","transparent", "transparent", "black")))
 ```

@@ -23,5 +23,5 @@ new_bechdel <- bechdel |>
 #| code-fold: true
 ggplot(new_bechdel, aes(x = clean_test)) +
   geom_bar(color = "white", fill = "blue") +
-  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")
+  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing", caption = "Created 2025, data from fivethirtyeight.com")
 ```

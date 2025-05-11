@@ -67,7 +67,7 @@ map_2 <- korea_complete |>
   theme_void()
 
 #placing the two maps side by side + adding title
-map_1 + map_2 + plot_annotation(title = "Korean Birth Rate (per 1000) by Region, 2000 to 2021")
+map_1 + map_2 + plot_annotation(title = "Korean Birth Rate (per 1000) by Region, 2000 to 2021", caption = "Created 2025, data from Alex on kaggle")
 
 ```
 
@@ -77,4 +77,4 @@ Most notably, the city of Sejong (in the center-Western region) has no data at a
 
 One other insight from this graph is the fact that, for the most part, the decline in birth rates doesn't seem particularly regional at all. Though in 2000 there are noticeable regional differences in birth rates, in 2000 they are (with the exception of Sejong) all similarly low. This suggests that the reasons for the low Korean birth rate go beyond just regional factors like city costs of living or regional infrastructure and points to the existence of broader issues facing the country as a whole.
 
-<font size="1"> 1. source :) (https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate) </font>
+<font size="1"> 1. source :) [What's Behind Sejong City's High Birth Rate?](https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate) </font>

@@ -92,7 +92,7 @@ ggplot(data = fc, aes(x = food_category, y = consumption, color = country)) +
   geom_point() +
   theme(legend.position = "none") +
  geom_text(data = fc_highest, aes(x = `food_category.x`, y = highest, label = country), nudge_y = 17) +
-  labs(title = "Food Consumption per Capita (kg) By Country and Category", x = "Food category", y = "Consumption (kg)")
+  labs(title = "Food Consumption per Capita (kg) By Country and Category", x = "Food category", y = "Consumption (kg)", "Created 2025, data from Tidy Tuesday")
 
 ```
 Looking at this dataset I wonder if there's any way I could get a better look at the countries so they aren't just all stacked on each other like they are currently. I also wish there was a version of the dataset with some more detailed categories so I could get a look at variations within them.
@@ -120,7 +120,7 @@ fc_regional |>
   ggplot(aes(x = food_category, y = region_consumption, color = region)) +
   scale_color_brewer(palette = "Set1") +
   geom_point(size = 1) +
-  labs(title = "Total Regional Food Consumption (kg) by Category", x = "Category", y = "Consumption (kg)", color = "Region")
+  labs(title = "Total Regional Food Consumption (kg) by Category", x = "Category", y = "Consumption (kg)", color = "Region", caption = "Created 2025, data from Tidy Tuesday")
 
 ```
 Similar to what I said with the first plot, I wish there was a version of the dataset with some more detailed categories so I could get a look at variations within them. I also think that it would be nice to make some plots with sub-regions, since just going off continents is probably erasing a lot of variation here.
