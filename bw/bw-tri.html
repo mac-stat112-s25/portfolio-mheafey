@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(daily_births, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> births, <span class="at">color =</span> day_of_week)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Births Over Time and Day of Week"</span>, <span class="at">color =</span> <span class="st">"Day of the Week"</span>, <span class="at">y =</span> <span class="st">"# of Births"</span>, <span class="at">x =</span> <span class="st">"Date"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Births Over Time and Day of Week"</span>, <span class="at">color =</span> <span class="st">"Day of the Week"</span>, <span class="at">y =</span> <span class="st">"# of Births"</span>, <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">caption =</span> <span class="st">"Created 2025, data from fivethirtyeight.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="bw-tri_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1038,7 +1038,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-39"><a href="#cb4-39"></a><span class="in">ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +</span></span>
 <span id="cb4-40"><a href="#cb4-40"></a><span class="in">  geom_point(size = 0.75) +</span></span>
 <span id="cb4-41"><a href="#cb4-41"></a><span class="in">  geom_smooth(se = FALSE) +</span></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="in">  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date")</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="in">  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date", caption = "Created 2025, data from fivethirtyeight.com")</span></span>
 <span id="cb4-43"><a href="#cb4-43"></a></span>
 <span id="cb4-44"><a href="#cb4-44"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>

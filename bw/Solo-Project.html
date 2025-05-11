@@ -399,7 +399,7 @@ Geodetic CRS:  WGS 84</code></pre>
 <span id="cb5-17"><a href="#cb5-17"></a>  <span class="fu">theme_void</span>()</span>
 <span id="cb5-18"><a href="#cb5-18"></a></span>
 <span id="cb5-19"><a href="#cb5-19"></a><span class="co">#placing the two maps side by side + adding title</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a>map_1 <span class="sc">+</span> map_2 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">"Korean Birth Rate (per 1000) by Region, 2000 to 2021"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-20"><a href="#cb5-20"></a>map_1 <span class="sc">+</span> map_2 <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">"Korean Birth Rate (per 1000) by Region, 2000 to 2021"</span>, <span class="at">caption =</span> <span class="st">"Created 2025, data from Alex on kaggle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="Solo-Project_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="Two side-by-side choropleth maps of South Korea, one from 2000 and one from 2021, with each region filled in by birth rate. The 2000 map spans from roughly 12 to 18, with concentrations in the Northwest and some Southern regions. The 2021 map, on the other hand, spans from roughly 4 to 10, with most of the country on the low end of the spectrum. There is one region in the West with a visibly much higher rate than the others." width="672"></p>
@@ -410,7 +410,7 @@ Geodetic CRS:  WGS 84</code></pre>
 <p>The declining birth rate has been the topic of much discussion in South Korea in recent years. The dataset I used only goes as far back as the year 2000 (so after the decline had already begun), but the viewer can still get a good picture of just how dramatic the change is— the highest values from the 2021 graph are still lower than the lowest values from 2000. Still, these two graphs give us a little bit more insight into how this decline is spread spatially, and reveal some interesting points.</p>
 <p>Most notably, the city of Sejong (in the center-Western region) has no data at all from 2000 and yet has by far the highest birth rate in 2021. While this might appear at first to be the result of just another gap in our dataset, the reality is that Sejong did not exist until 2007. The city was conceived of as a new administrative capital for South Korea, and as such has a much higher concentration of government jobs than the other regions of the country. Government jobs are more stable, and government workers have much more freedom than private sector workers when it comes to maternity and other types of childcare leave, making it easier for them to raise children. Sejong also has much better childcare infrastructure and lower housing costs than other Korean cities. <font size="1"> 1 </font></p>
 <p>One other insight from this graph is the fact that, for the most part, the decline in birth rates doesn’t seem particularly regional at all. Though in 2000 there are noticeable regional differences in birth rates, in 2000 they are (with the exception of Sejong) all similarly low. This suggests that the reasons for the low Korean birth rate go beyond just regional factors like city costs of living or regional infrastructure and points to the existence of broader issues facing the country as a whole.</p>
-<p><font size="1"> 1. source :) (https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate) </font></p>
+<p><font size="1"> 1. source :) <a href="https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate">What’s Behind Sejong City’s High Birth Rate?</a> </font></p>
 
 
 <!-- -->
@@ -1115,7 +1115,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-71"><a href="#cb6-71"></a><span class="in">  theme_void()</span></span>
 <span id="cb6-72"><a href="#cb6-72"></a></span>
 <span id="cb6-73"><a href="#cb6-73"></a><span class="in">#placing the two maps side by side + adding title</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="in">map_1 + map_2 + plot_annotation(title = "Korean Birth Rate (per 1000) by Region, 2000 to 2021")</span></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="in">map_1 + map_2 + plot_annotation(title = "Korean Birth Rate (per 1000) by Region, 2000 to 2021", caption = "Created 2025, data from Alex on kaggle")</span></span>
 <span id="cb6-75"><a href="#cb6-75"></a></span>
 <span id="cb6-76"><a href="#cb6-76"></a><span class="in">```</span></span>
 <span id="cb6-77"><a href="#cb6-77"></a></span>
@@ -1125,7 +1125,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-81"><a href="#cb6-81"></a></span>
 <span id="cb6-82"><a href="#cb6-82"></a>One other insight from this graph is the fact that, for the most part, the decline in birth rates doesn't seem particularly regional at all. Though in 2000 there are noticeable regional differences in birth rates, in 2000 they are (with the exception of Sejong) all similarly low. This suggests that the reasons for the low Korean birth rate go beyond just regional factors like city costs of living or regional infrastructure and points to the existence of broader issues facing the country as a whole.</span>
 <span id="cb6-83"><a href="#cb6-83"></a></span>
-<span id="cb6-84"><a href="#cb6-84"></a>&lt;font size="1"&gt; 1. source :) (https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate) &lt;/font&gt;</span>
+<span id="cb6-84"><a href="#cb6-84"></a>&lt;font size="1"&gt; 1. source :) <span class="co">[</span><span class="ot">What's Behind Sejong City's High Birth Rate?</span><span class="co">](https://www.koreatimes.co.kr/southkorea/society/20211104/whats-behind-sejong-citys-high-birthrate)</span> &lt;/font&gt;</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

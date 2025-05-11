@@ -717,7 +717,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-20"><a href="#cb32-20"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> consumption)) <span class="sc">+</span></span>
 <span id="cb32-21"><a href="#cb32-21"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">low=</span><span class="st">"#fffcad"</span>, <span class="at">high=</span><span class="st">"#ff0000"</span>, <span class="at">na.value=</span><span class="st">"transparent"</span>) <span class="sc">+</span></span>
 <span id="cb32-22"><a href="#cb32-22"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>food_category, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb32-23"><a href="#cb32-23"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-23"><a href="#cb32-23"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb32-24"><a href="#cb32-24"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Consumption of Food Categories by Country"</span>, <span class="at">caption =</span> <span class="st">"Created 2025, data from Tidy Tuesday"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="exam-02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="1056"></p>
@@ -1547,9 +1548,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-199"><a href="#cb33-199"></a><span class="in">  geom_sf(aes(fill = consumption)) +</span></span>
 <span id="cb33-200"><a href="#cb33-200"></a><span class="in">  scale_fill_continuous(low="#fffcad", high="#ff0000", na.value="transparent") +</span></span>
 <span id="cb33-201"><a href="#cb33-201"></a><span class="in">  facet_wrap(~food_category, ncol = 2) +</span></span>
-<span id="cb33-202"><a href="#cb33-202"></a><span class="in">  theme(legend.position = "bottom")</span></span>
-<span id="cb33-203"><a href="#cb33-203"></a></span>
-<span id="cb33-204"><a href="#cb33-204"></a><span class="in">```</span></span>
+<span id="cb33-202"><a href="#cb33-202"></a><span class="in">  theme(legend.position = "bottom") +</span></span>
+<span id="cb33-203"><a href="#cb33-203"></a><span class="in">  labs(title = "Consumption of Food Categories by Country", caption = "Created 2025, data from Tidy Tuesday")</span></span>
+<span id="cb33-204"><a href="#cb33-204"></a></span>
+<span id="cb33-205"><a href="#cb33-205"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

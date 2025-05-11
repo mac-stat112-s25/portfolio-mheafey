@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(new_bechdel, <span class="fu">aes</span>(<span class="at">x =</span> clean_test)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Movies Passing the Bechdel Test by Degree of Passing"</span>, <span class="at">y =</span> <span class="st">"# of Movies"</span>, <span class="at">x =</span> <span class="st">"Degree of Passing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Movies Passing the Bechdel Test by Degree of Passing"</span>, <span class="at">y =</span> <span class="st">"# of Movies"</span>, <span class="at">x =</span> <span class="st">"Degree of Passing"</span>, <span class="at">caption =</span> <span class="st">"Created 2025, data from fivethirtyeight.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="bw-uni_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1021,7 +1021,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-27"><a href="#cb4-27"></a><span class="in">#| code-fold: true</span></span>
 <span id="cb4-28"><a href="#cb4-28"></a><span class="in">ggplot(new_bechdel, aes(x = clean_test)) +</span></span>
 <span id="cb4-29"><a href="#cb4-29"></a><span class="in">  geom_bar(color = "white", fill = "blue") +</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="in">  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="in">  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing", caption = "Created 2025, data from fivethirtyeight.com")</span></span>
 <span id="cb4-31"><a href="#cb4-31"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
