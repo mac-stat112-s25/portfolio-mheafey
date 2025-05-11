@@ -33,22 +33,26 @@ Thoughts?
 
 In the toolbar at the top of this document, **Render** the .qmd file into a .html file.
 Where is this file stored?
+
+In the ica folder (same folder as this document)
+
 Thoughts about its appearance / contents?
+
 Can you edit it?
 
 Toggling between the .qmd and .html files, explain the purpose of the following features in the .qmd file:
 
-`*`
+`*` Italics
 
-`**`
+`**` Bold
 
-`#`
+`#` Creates headers
 
-`-`
+`-` Creates list items
 
-`\`
+`\` Creates line breaks
 
-`![](url)`
+`![](url)` Embeds a url
 
 \
 \
@@ -98,6 +102,7 @@ four_tens <- rep(10, 4)
 sum(four_tens)
 
 ```
+
 \
 \
 \
