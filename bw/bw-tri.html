@@ -337,8 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Use this file to generate a professional looking <strong>trivariate</strong> visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</p>
-<div class="cell">
+</header><div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(fivethirtyeight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1006,44 +1005,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Trivariate Viz"</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="in">```{r}</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#| message: false</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#| warning: false</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="in">```{r}</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#| message: false</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="in">```</span></span>
 <span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="in">```</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="in">```{r}</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="fu">data</span>(<span class="st">"Birthdays"</span>)</span>
-<span id="cb4-26"><a href="#cb4-26"></a>daily_births <span class="ot">&lt;-</span> Birthdays <span class="sc">|&gt;</span> </span>
-<span id="cb4-27"><a href="#cb4-27"></a>  <span class="fu">group_by</span>(date) <span class="sc">|&gt;</span> </span>
-<span id="cb4-28"><a href="#cb4-28"></a>  <span class="fu">summarize</span>(<span class="at">births =</span> <span class="fu">sum</span>(births)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-29"><a href="#cb4-29"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date), </span>
-<span id="cb4-30"><a href="#cb4-30"></a>         <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-31"><a href="#cb4-31"></a>         <span class="at">day_of_month =</span> <span class="fu">mday</span>(date),</span>
-<span id="cb4-32"><a href="#cb4-32"></a>         <span class="at">day_of_week =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="in">```{r}</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="fu">data</span>(<span class="st">"Birthdays"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24"></a>daily_births <span class="ot">&lt;-</span> Birthdays <span class="sc">|&gt;</span> </span>
+<span id="cb4-25"><a href="#cb4-25"></a>  <span class="fu">group_by</span>(date) <span class="sc">|&gt;</span> </span>
+<span id="cb4-26"><a href="#cb4-26"></a>  <span class="fu">summarize</span>(<span class="at">births =</span> <span class="fu">sum</span>(births)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-27"><a href="#cb4-27"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date), </span>
+<span id="cb4-28"><a href="#cb4-28"></a>         <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-29"><a href="#cb4-29"></a>         <span class="at">day_of_month =</span> <span class="fu">mday</span>(date),</span>
+<span id="cb4-30"><a href="#cb4-30"></a>         <span class="at">day_of_week =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-31"><a href="#cb4-31"></a></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="in">```</span></span>
 <span id="cb4-33"><a href="#cb4-33"></a></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="in">```</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="in">```{r, fig.cap = "Created by Madeleine Heafey"}</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="in">#| message: false</span></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="in">#| warning: false</span></span>
-<span id="cb4-39"><a href="#cb4-39"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="in">ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +</span></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="in">  geom_point(size = 0.75) +</span></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="in">  geom_smooth(se = FALSE) +</span></span>
-<span id="cb4-44"><a href="#cb4-44"></a><span class="in">  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date")</span></span>
-<span id="cb4-45"><a href="#cb4-45"></a></span>
-<span id="cb4-46"><a href="#cb4-46"></a><span class="in">```</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="in">```{r, fig.cap = "Created by Madeleine Heafey"}</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="in">#| message: false</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="in">#| warning: false</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="in">ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="in">  geom_point(size = 0.75) +</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="in">  geom_smooth(se = FALSE) +</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="in">  labs(title = "Daily Births Over Time and Day of Week", color = "Day of the Week", y = "# of Births", x = "Date")</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

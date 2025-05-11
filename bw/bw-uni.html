@@ -337,8 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Use this file to generate a professional looking <strong>univariate</strong> visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</p>
-<div class="cell">
+</header><div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(fivethirtyeight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1001,31 +1000,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Univariate Viz"</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="in">```{r}</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#| message: false</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#| warning: false</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="in">```</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="in">```{r}</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="fu">data</span>(bechdel)</span>
-<span id="cb4-23"><a href="#cb4-23"></a>new_bechdel <span class="ot">&lt;-</span> bechdel <span class="sc">|&gt;</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a>  <span class="fu">mutate</span>(<span class="at">clean_test =</span> <span class="fu">factor</span>(clean_test, <span class="fu">c</span>(<span class="st">"nowomen"</span>, <span class="st">"notalk"</span>, <span class="st">"men"</span>, <span class="st">"dubious"</span>, <span class="st">"ok"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a>  <span class="fu">mutate</span>(<span class="at">half_decades =</span> <span class="fu">cut</span>(year, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1969</span>, <span class="dv">2014</span>, <span class="at">by =</span> <span class="dv">5</span>)))</span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="in">```</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="in">```{r, fig.cap = "Created by Madeleine Heafey"}</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="in">ggplot(new_bechdel, aes(x = clean_test)) +</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="in">  geom_bar(color = "white", fill = "blue") +</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="in">  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="in">```</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="in">```{r}</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#| message: false</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="in">```</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="in">```{r}</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="fu">data</span>(bechdel)</span>
+<span id="cb4-21"><a href="#cb4-21"></a>new_bechdel <span class="ot">&lt;-</span> bechdel <span class="sc">|&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>  <span class="fu">mutate</span>(<span class="at">clean_test =</span> <span class="fu">factor</span>(clean_test, <span class="fu">c</span>(<span class="st">"nowomen"</span>, <span class="st">"notalk"</span>, <span class="st">"men"</span>, <span class="st">"dubious"</span>, <span class="st">"ok"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>  <span class="fu">mutate</span>(<span class="at">half_decades =</span> <span class="fu">cut</span>(year, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1969</span>, <span class="dv">2014</span>, <span class="at">by =</span> <span class="dv">5</span>)))</span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="in">```</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="in">```{r, fig.cap = "Created by Madeleine Heafey"}</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="in">ggplot(new_bechdel, aes(x = clean_test)) +</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="in">  geom_bar(color = "white", fill = "blue") +</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="in">  labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
