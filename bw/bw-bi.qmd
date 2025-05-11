@@ -5,7 +5,7 @@ title: "Bivariate Viz"
 Use this file to generate a professional looking **bivariate** visualization.  The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.
 
 ```{r}
-#|echo: true
+#| echo: true
 #| message: false
 #| warning: false
 #| code-fold: true
@@ -15,6 +15,7 @@ library(fivethirtyeight)
 ```
 
 ```{r}
+#| code-fold: true
 data(bechdel)
 new_bechdel <- bechdel |>
   mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
@@ -24,6 +25,7 @@ new_bechdel <- bechdel |>
 ```{r, fig.cap = "Created by Madeleine Heafey"}
 #| message: false
 #| warning: false
+#| code-fold: true
 ggplot(new_bechdel, aes(x = budget_2013, y = domgross_2013)) +
   geom_point(size = 0.5, alpha = 0.5) +
   geom_smooth(se = FALSE) +

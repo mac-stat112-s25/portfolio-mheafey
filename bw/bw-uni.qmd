@@ -7,12 +7,14 @@ Use this file to generate a professional looking **univariate** visualization. T
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 library(tidyverse)
 library(mosaic)
 library(fivethirtyeight)
 ```
 
 ```{r}
+#| code-fold: true
 data(bechdel)
 new_bechdel <- bechdel |>
   mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
@@ -20,6 +22,7 @@ new_bechdel <- bechdel |>
 ```
 
 ```{r, fig.cap = "Created by Madeleine Heafey"}
+#| code-fold: true
 ggplot(new_bechdel, aes(x = clean_test)) +
   geom_bar(color = "white", fill = "blue") +
   labs(title = "Number of Movies Passing the Bechdel Test by Degree of Passing", y = "# of Movies", x = "Degree of Passing")

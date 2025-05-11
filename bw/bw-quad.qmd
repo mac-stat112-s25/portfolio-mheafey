@@ -7,6 +7,7 @@ Use this file to generate a professional looking **quadvariate** visualization. 
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 library(tidyverse)
 library(mosaic)
 library(fivethirtyeight)
@@ -14,6 +15,7 @@ library(ggplot2)
 ```
 
 ```{r}
+#| code-fold: true
 data(bechdel)
 new_bechdel <- bechdel |>
   mutate(clean_test = factor(clean_test, c("nowomen", "notalk", "men", "dubious", "ok"))) |>
@@ -21,6 +23,7 @@ new_bechdel <- bechdel |>
 ```
 
 ```{r, fig.cap = "Created by Madeleine Heafey"}
+#| code-fold: true
 ggplot(new_bechdel, aes(x = half_decades, fill = clean_test)) +
   geom_bar() +
   labs(title = "Number of Films Passing the Bechdel Test by Half Decade and Degree of Passing", fill = "Degree of Passing", y = "Number of Movies", x = "Half Decades") +

@@ -6,6 +6,7 @@ Use this file to generate a professional looking **spatial** visualization.  The
 
 ```{r}
 #| message: false
+#| code-fold: true
 # Load required libraries
 library(tidyverse)
 library(openintro)
@@ -16,11 +17,13 @@ library(ggplot2)
 ```
 
 ```{r}
+#| code-fold: true
 # Import starbucks location data
 starbucks <- read.csv("https://mac-stat.github.io/data/starbucks.csv")
 ```
 
 ```{r}
+#| code-fold: true
 starbucks_us_by_state <- starbucks |>
   filter(Country == "US") |>
   count(State.Province) |>
@@ -30,6 +33,7 @@ starbucks_us_by_state <- starbucks |>
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 census_pop_est_2018 <- read_csv("https://mac-stat.github.io/data/us_census_2018_state_pop_est.csv") |>
   separate(state, into = c("dot", "state"), extra = "merge") |>
   select(-dot) |>
@@ -44,12 +48,14 @@ starbucks_with_2018_pop_est <-
 ```
 
 ```{r}
+#| code-fold: true
 #filtering for only Starbucks in contiguous US
 starbucks_cma <- starbucks |> 
   filter(Country %in% c('US'), State.Province != "AK", State.Province != "HI")
 ```
 
 ```{r, fig.cap = "Created by Madeleine Heafey"}
+#| code-fold: true
 states_map <- map_data("state")
 
 #creating choropleth map + points for each starbucks

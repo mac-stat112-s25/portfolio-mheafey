@@ -6,6 +6,7 @@ format: html
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 #| paged-print: false
 
 #loading packages
@@ -24,6 +25,7 @@ korea_data <- read_csv("../data/Korean_demographics_2000-2022.csv")
 ```
 
 ```{r}
+#| code-fold: true
 
 #Clearing up region naming differences. One dataset uses the Korean province names, the other one uses the English ones. I chose to stick with the English names for clarity.
 korea_data <- korea_data |>
@@ -44,6 +46,7 @@ korea_complete <- korea_map |>
 ```
 
 ```{r, fig.cap = "Created by Madeleine Heafey", fig.alt = "Two side-by-side choropleth maps of South Korea, one from 2000 and one from 2021, with each region filled in by birth rate. The 2000 map spans from roughly 12 to 18, with concentrations in the Northwest and some Southern regions. The 2021 map, on the other hand, spans from roughly 4 to 10, with most of the country on the low end of the spectrum. There is one region in the West with a visibly much higher rate than the others."}
+#| code-fold: true
 
 #Birth rate map for 2000
 map_1 <- korea_complete |>

@@ -7,6 +7,7 @@ Use this file to generate a professional looking **trivariate** visualization.  
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 
 library(tidyverse)
 library(mosaic)
@@ -15,6 +16,7 @@ library(fivethirtyeight)
 ```
 
 ```{r}
+#| code-fold: true
 
 data("Birthdays")
 daily_births <- Birthdays |> 
@@ -30,6 +32,7 @@ daily_births <- Birthdays |>
 ```{r, fig.cap = "Created by Madeleine Heafey"}
 #| message: false
 #| warning: false
+#| code-fold: true
 
 ggplot(daily_births, aes(x = date, y = births, color = day_of_week)) +
   geom_point(size = 0.75) +
