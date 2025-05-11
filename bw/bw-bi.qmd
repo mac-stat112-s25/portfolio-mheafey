@@ -9,6 +9,7 @@ Use this file to generate a professional looking **bivariate** visualization.  T
 #| message: false
 #| warning: false
 #| code-fold: true
+
 library(tidyverse)
 library(mosaic)
 library(fivethirtyeight)
@@ -29,5 +30,5 @@ new_bechdel <- bechdel |>
 ggplot(new_bechdel, aes(x = budget_2013, y = domgross_2013)) +
   geom_point(size = 0.5, alpha = 0.5) +
   geom_smooth(se = FALSE) +
-  labs(title = "Movie Budget vs. Domestic Box Office Gross", x = "Movie Budget", y = "Domestic Box Office")
+  labs(title = "Movie Budget vs. Domestic Box Office Gross", x = "Movie Budget", y = "Domestic Office")
 ```
