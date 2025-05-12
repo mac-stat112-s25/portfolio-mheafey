@@ -120,7 +120,7 @@ fc_regional |>
   ggplot(aes(x = food_category, y = region_consumption, color = region)) +
   scale_color_brewer(palette = "Set1") +
   geom_point(size = 1) +
-  labs(title = "Total Regional Food Consumption (kg) by Category", x = "Category", y = "Consumption (kg)", color = "Region", caption = "Created 2025, data from Tidy Tuesday")
+  labs(title = "Total Regional Food Consumption (kg) by Category", x = "Category", y = "Consumption (kg)", color = "Region", caption = "Created 2025, data from Tidy Tuesday and lukes on GitHub")
 
 ```
 Similar to what I said with the first plot, I wish there was a version of the dataset with some more detailed categories so I could get a look at variations within them. I also think that it would be nice to make some plots with sub-regions, since just going off continents is probably erasing a lot of variation here.

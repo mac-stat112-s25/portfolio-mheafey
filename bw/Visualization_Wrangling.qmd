@@ -3,5 +3,7 @@ title: "Visualization_Wrangling"
 format: html
 ---
 
+This summary sheet is for both exams!
+
 ![](https://i.imgur.com/zuHQn8R.jpeg)
 
